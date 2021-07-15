@@ -10,20 +10,252 @@
     <meta name="keywords" content="Python, django, tkinter, pyqt, kivy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="index, follow" />
-    <title>Home · vau softtech</title>  
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
+    
+    <title>Home · vau softtech</title>
+    <style>
+      *,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* colors */
+  --clr-accnt : hsla(219, 58%, 40%, 1);
+  --clr-normal : hsla(219, 58%, 90%, 1)
+}
+
+body {
+  background: var(--clr-normal);
+  height: 100vh;
+  font-family: 'Raleway', sans-serif;
+}
+
+nav {
+  background-color: var(--clr-accnt);
+  color: var(--clr-normal);
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+nav > ul {
+  display: inline-flex;
+}
+
+nav li {
+  list-style-type: none;
+  margin: 2rem 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+nav a::after {
+  position: absolute;
+  content: "";
+  bottom: -0.2rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: hsla(219, 58%, 90%, 1);
+  display: block;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 50ms cubic-bezier(.68,-0.55,.27,1.55);
+  border: none;
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+article {
+  padding-top: 10rem;
+}
+
+.branding {
+  display: inline-flex;
+  align-content: center;
+  align-items: center;
+}
+
+.logo {
+  height : 50px;
+  width: 50px;
+  border: 2px solid hsla(219, 58%, 90%, 0.25);
+  border-radius: 50%;
+  padding: 1rem;
+  margin-left: 1rem;
+}
+
+.company-name {
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.company-name .part-1 {
+   font-weight: 900;
+    letter-spacing: -5px;
+}
+
+.company-name .part-2 {
+    letter-spacing: 1px;
+}
+
+.company-name .part-3 {
+    letter-spacing: -3px;
+}
+
+.fw-thick {
+  font-weight: 700;
+}
+
+.fw-medium {
+  font-weight: 400;
+}
+
+.fw-thin {
+  font-weight: 100;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.card {
+  position: relative;
+  min-width: 40%;
+  box-shadow: 0 0 25px 0 rgba(0,0,0,0.5);
+}
+
+.card::before,
+.card::after {
+  content: '';
+  position: absolute;
+  border: 1px solid white;
+}
+
+.card::before {
+  top: 1.5rem;
+  bottom: 1.5rem;
+  right: 1.5rem;
+}
+
+.card::after {
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+}
+
+.card__img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.card__body {
+  background: rgba(0,0,0, .5);
+  color: var(--clr-normal);
+  padding: 3rem;
+}
+
+.card__title,
+.card__text {
+  margin: 0;
+}
+
+.card__title {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: .5em;
+  position: relative;
+  z-index: 1;
+  color: var(--clr-normal);
+}
+
+.card__title::before {
+  content: '';
+  position: absolute;
+  background: var(--clr-accnt);
+  width: calc(100% + 5rem);
+  top: -.1em;
+  bottom: -.15em;
+  left: -5rem;
+  z-index: -1;
+  box-shadow: inset -15px 0 10px -10px rgba(0,0,0,.5);
+}
+
+.card__title::after {
+  content: '';
+  position: absolute;
+  top: -.1em;
+  bottom: -.15em;
+  left: calc(100% + 3rem);
+  width: 3rem;
+  background: var(--clr-accnt);
+  box-shadow: inset 12px 0 10px -10px rgba(0,0,0,.5);
+}
+
+.card__text {
+  text-align: right;
+}
+    </style>
   </head>
   <body>
     <header>
       <nav>
-      </nav>
+        <div class="branding">
+          <div class="logo">
+            <img src="./img/logo.jpg" alt=""/>
+          </div>
+          <div class="company-name">
+            <span class="fw-thick part-1">VAU</span> <span class="fw-medium part-2">Soft</span><span class="fw-thin part-3">Tech</span>
+          </div>
+        </div>
+        <ul class="uppercase">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section>
+      <article class="">
+        <div class="card">
+          <img src="//unsplash.it/705/705" alt="" class="card__img">
+            <div class="card__body">
+              <h3 class="card__title">Welcome!</h3>
+              <p class="card__text">You have arrived at the very <span class="fw-thick">right place</span><br/>searching <span class="fw-thick">for</span> a full-stack <span class="fw-thick">Python developer</span>.</p>
+            </div>
+          </div>
+      </article>
+    </section>
+      
     </header>
-    <article>
-      <h1>Welcome to vau SoftTech's web presence!</h1>
-      <p>You have arrived at the right place if you are looking for the perfect deveoper for Python, dJango, flask, tkinter, kivy.</p>
-    </article>
-    <aside>
-    </aside>
-    <footer>
-    <hr/>
-    <small>&copy; vau SoftTech 2020 · All Rights Reserved.
-    </footer>
+  </body>
+</html>
